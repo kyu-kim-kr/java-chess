@@ -1,32 +1,22 @@
 package net.honux.chess.pieces;
 
 public class Piece {
-    public static final String WHITE_COLOR = "white";
-    public static final String BLACK_COLOR = "black";
+    public enum Color {
+        WHITE, BLACK, NOCOLOR;
+    }
 
-    public enum White {
+    public enum Type {
         PAWN('p'), KNIGHT('n'), ROOK('r'),
         BISHOP('b'), QUEEN('q'), KING('k');
 
         public char representation;
 
-        White(char representation) {
+        Type(char representation) {
             this.representation = representation;
         }
     }
 
-    public enum Black {
-        PAWN('P'), KNIGHT('N'), ROOK('R'),
-        BISHOP('B'), QUEEN('Q'), KING('K');
-
-        public char representation;
-
-        Black(char representation) {
-            this.representation = representation;
-        }
-    }
-
-    private String color;
+    private Color color;
     private char representation;
 
     private Piece(String color, char representation) {
@@ -34,7 +24,7 @@ public class Piece {
         this.representation = representation;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
@@ -43,51 +33,51 @@ public class Piece {
     }
 
     public static Piece createWhitePawn() {
-        return new Piece(WHITE_COLOR, White.PAWN.representation);
+        return new Piece(Color.WHITE, Type.PAWN.representation);
     }
 
     public static Piece createBlackPawn() {
-        return new Piece(BLACK_COLOR, Black.PAWN.representation);
+        return new Piece(Color.BLACK, Type.PAWN.representation);
     }
 
     public static Piece createWhiteKnight() {
-        return new Piece(WHITE_COLOR, White.KNIGHT.representation);
+        return new Piece(Color.WHITE, Type.KNIGHT.representation);
     }
 
     public static Piece createBlackKnight() {
-        return new Piece(BLACK_COLOR, Black.KNIGHT.representation);
+        return new Piece(Color.BLACK, Type.KNIGHT.representation);
     }
 
     public static Piece createWhiteRook() {
-        return new Piece(WHITE_COLOR, White.ROOK.representation);
+        return new Piece(Color.WHITE, Type.ROOK.representation);
     }
 
     public static Piece createBlackRook() {
-        return new Piece(BLACK_COLOR, Black.ROOK.representation);
+        return new Piece(Color.BLACK, Type.ROOK.representation);
     }
 
     public static Piece createWhiteBishop() {
-        return new Piece(WHITE_COLOR, White.BISHOP.representation);
+        return new Piece(Color.WHITE, Type.BISHOP.representation);
     }
 
     public static Piece createBlackBishop() {
-        return new Piece(BLACK_COLOR, Black.BISHOP.representation);
+        return new Piece(Color.BLACK, Type.BISHOP.representation);
     }
 
     public static Piece createWhiteQueen() {
-        return new Piece(WHITE_COLOR, White.QUEEN.representation);
+        return new Piece(Color.WHITE, Type.QUEEN.representation);
     }
 
     public static Piece createBlackQueen() {
-        return new Piece(BLACK_COLOR, Black.QUEEN.representation);
+        return new Piece(Color.BLACK, Type.QUEEN.representation);
     }
 
     public static Piece createWhiteKing() {
-        return new Piece(WHITE_COLOR, White.KING.representation);
+        return new Piece(Color.WHITE, Type.KING.representation);
     }
 
     public static Piece createBlackKing() {
-        return new Piece(BLACK_COLOR, Black.KING.representation);
+        return new Piece(Color.BLACK, Type.KING.representation);
     }
 
     public boolean isWhite() {
