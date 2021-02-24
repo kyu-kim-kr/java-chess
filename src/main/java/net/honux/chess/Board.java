@@ -29,7 +29,7 @@ public class Board {
     }
 
     private ArrayList<Piece> distinguishPawnsColor(Piece pawn) {
-        if (pawn.getColor() == Piece.WHITE_COLOR)
+        if (pawn.isWhite())
             return whitePawns;
         else
             return blackPawns;
