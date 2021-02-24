@@ -15,6 +15,7 @@ public class Board {
     private ArrayList<Piece> whitePieces = new ArrayList<>();
     private ArrayList<Piece> blackPawns = new ArrayList<>();
     private ArrayList<Piece> blackPieces = new ArrayList<>();
+    private ArrayList<Piece> noPieces = new ArrayList<>();
 
     public void add(Piece pawn) {
         distinguishPawnsColor(pawn).add(pawn);
@@ -39,6 +40,7 @@ public class Board {
         for (int i = 0; i < BOARD_LENGTH; i++) {
             whitePawns.add(createWhitePawn());
             blackPawns.add(createBlackPawn());
+            noPieces.add(createBlank());
         }
         whitePieces.add(createWhiteRook());
         whitePieces.add(createWhiteKnight());
@@ -76,7 +78,7 @@ public class Board {
     }
 
     private String getBlankLine() {
-        return "........";
+        return listPiecesToSingleLine(noPieces);
     }
 
     private String listPiecesToSingleLine(ArrayList<Piece> pieces) {
