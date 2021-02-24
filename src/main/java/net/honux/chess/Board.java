@@ -1,6 +1,7 @@
 package net.honux.chess;
 
 import static net.honux.chess.utils.StringUtils.appendNewLine;
+import static net.honux.chess.pieces.Piece.*;
 
 import net.honux.chess.pieces.Piece;
 
