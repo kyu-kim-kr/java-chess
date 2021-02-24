@@ -7,7 +7,8 @@ public class Piece {
 
     public enum Type {
         PAWN('p'), KNIGHT('n'), ROOK('r'),
-        BISHOP('b'), QUEEN('q'), KING('k');
+        BISHOP('b'), QUEEN('q'), KING('k'),
+        NO_PIECE('.');
 
         public char representation;
 
@@ -26,6 +27,7 @@ public class Piece {
         } else {
             this.representation = type.representation;
         }
+
         this.color = color;
         this.type = type;
     }
@@ -88,6 +90,10 @@ public class Piece {
 
     public static Piece createBlackKing() {
         return new Piece(Color.BLACK, Type.KING);
+    }
+
+    public static Piece createBlank() {
+        return new Piece(Color.NOCOLOR, Type.NO_PIECE);
     }
 
     public boolean isWhite() {
