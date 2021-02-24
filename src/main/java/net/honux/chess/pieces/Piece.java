@@ -19,9 +19,13 @@ public class Piece {
     private Color color;
     private char representation;
 
-    private Piece(String color, char representation) {
+    private Piece(Color color, char representation) {
+        if (color == Color.BLACK) {
+            this.representation = Character.toUpperCase(representation);
+        } else {
+            this.representation = representation;
+        }
         this.color = color;
-        this.representation = representation;
     }
 
     public Color getColor() {
