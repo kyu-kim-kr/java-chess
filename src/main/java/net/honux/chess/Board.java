@@ -37,26 +37,26 @@ public class Board {
 
     public void initialize() {
         for (int i = 0; i < BOARD_LENGTH; i++) {
-            whitePawns.add(new Piece(Piece.WHITE_COLOR, Piece.White.PAWN.representation));
-            blackPawns.add(new Piece(Piece.BLACK_COLOR, Piece.Black.PAWN.representation));
+            whitePawns.add(createWhitePawn());
+            blackPawns.add(createBlackPawn());
         }
-        whitePieces.add(new Piece(Piece.WHITE_COLOR, Piece.White.ROOK.representation));
-        whitePieces.add(new Piece(Piece.WHITE_COLOR, Piece.White.KNIGHT.representation));
-        whitePieces.add(new Piece(Piece.WHITE_COLOR, Piece.White.BISHOP.representation));
-        whitePieces.add(new Piece(Piece.WHITE_COLOR, Piece.White.QUEEN.representation));
-        whitePieces.add(new Piece(Piece.WHITE_COLOR, Piece.White.KING.representation));
-        whitePieces.add(new Piece(Piece.WHITE_COLOR, Piece.White.BISHOP.representation));
-        whitePieces.add(new Piece(Piece.WHITE_COLOR, Piece.White.KNIGHT.representation));
-        whitePieces.add(new Piece(Piece.WHITE_COLOR, Piece.White.ROOK.representation));
+        whitePieces.add(createWhiteRook());
+        whitePieces.add(createWhiteKnight());
+        whitePieces.add(createWhiteBishop());
+        whitePieces.add(createWhiteQueen());
+        whitePieces.add(createWhiteKing());
+        whitePieces.add(createWhiteBishop());
+        whitePieces.add(createWhiteKnight());
+        whitePieces.add(createWhiteRook());
 
-        blackPieces.add(new Piece(Piece.BLACK_COLOR, Piece.Black.ROOK.representation));
-        blackPieces.add(new Piece(Piece.BLACK_COLOR, Piece.Black.KNIGHT.representation));
-        blackPieces.add(new Piece(Piece.BLACK_COLOR, Piece.Black.BISHOP.representation));
-        blackPieces.add(new Piece(Piece.BLACK_COLOR, Piece.Black.QUEEN.representation));
-        blackPieces.add(new Piece(Piece.BLACK_COLOR, Piece.Black.KING.representation));
-        blackPieces.add(new Piece(Piece.BLACK_COLOR, Piece.Black.BISHOP.representation));
-        blackPieces.add(new Piece(Piece.BLACK_COLOR, Piece.Black.KNIGHT.representation));
-        blackPieces.add(new Piece(Piece.BLACK_COLOR, Piece.Black.ROOK.representation));
+        blackPieces.add(createBlackRook());
+        blackPieces.add(createBlackKnight());
+        blackPieces.add(createBlackBishop());
+        blackPieces.add(createBlackQueen());
+        blackPieces.add(createBlackKing());
+        blackPieces.add(createBlackBishop());
+        blackPieces.add(createBlackKnight());
+        blackPieces.add(createBlackRook());
     }
 
     private String getWhitePiecesResult() {
