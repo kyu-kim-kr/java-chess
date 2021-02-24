@@ -29,10 +29,7 @@ public class Piece {
     private String color;
     private char representation;
 
-    private Piece() {
-    }
-
-    public Piece(String color, char representation) {
+    private Piece(String color, char representation) {
         this.color = color;
         this.representation = representation;
     }
