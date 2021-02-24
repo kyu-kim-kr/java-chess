@@ -85,10 +85,10 @@ public class Piece {
     }
 
     public boolean isWhite() {
-        return this.color.equals(WHITE_COLOR);
+        return this.color == Color.WHITE;
     }
 
     public boolean isBlack() {
-        return this.color.equals(BLACK_COLOR);
+        return this.color == Color.BLACK;
     }
 }
