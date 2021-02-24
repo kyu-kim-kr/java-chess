@@ -17,19 +17,25 @@ public class Piece {
     }
 
     private Color color;
+    private Type type;
     private char representation;
 
-    private Piece(Color color, char representation) {
+    private Piece(Color color, Type type) {
         if (color == Color.BLACK) {
             this.representation = Character.toUpperCase(type.representation);
         } else {
             this.representation = type.representation;
         }
         this.color = color;
+        this.type = type;
     }
 
     public Color getColor() {
         return color;
+    }
+
+    public Type getType() {
+        return type;
     }
 
     public char getRepresentation() {
