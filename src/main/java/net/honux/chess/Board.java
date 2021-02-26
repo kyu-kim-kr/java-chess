@@ -1,110 +1,36 @@
 package net.honux.chess;
 
 import static net.honux.chess.utils.StringUtils.appendNewLine;
-import static net.honux.chess.pieces.Piece.*;
-
-import net.honux.chess.pieces.Piece;
+import static net.honux.chess.Rank.*;
 
 import java.util.ArrayList;
 
 public class Board {
 
-    private static final int BOARD_LENGTH = 8;
-
-    private ArrayList<Piece> whitePawns = new ArrayList<>();
-    private ArrayList<Piece> whitePieces = new ArrayList<>();
-    private ArrayList<Piece> blackPawns = new ArrayList<>();
-    private ArrayList<Piece> blackPieces = new ArrayList<>();
-    private ArrayList<Piece> noPieces = new ArrayList<>();
-
-    public void add(Piece pawn) {
-        distinguishPawnsColor(pawn).add(pawn);
-    }
-
-    public int size(Piece pawn) {
-        return distinguishPawnsColor(pawn).size();
-    }
-
-    public Piece findPawn(Piece pawn, int index) {
-        return distinguishPawnsColor(pawn).get(index);
-    }
-
-    private ArrayList<Piece> distinguishPawnsColor(Piece pawn) {
-        if (pawn.isWhite())
-            return whitePawns;
-        else
-            return blackPawns;
-    }
+    private ArrayList<Rank> ranks = new ArrayList<>();
 
     public void initialize() {
-        for (int i = 0; i < BOARD_LENGTH; i++) {
-            whitePawns.add(createWhitePawn());
-            blackPawns.add(createBlackPawn());
-            noPieces.add(createBlank());
-        }
-        whitePieces.add(createWhiteRook());
-        whitePieces.add(createWhiteKnight());
-        whitePieces.add(createWhiteBishop());
-        whitePieces.add(createWhiteQueen());
-        whitePieces.add(createWhiteKing());
-        whitePieces.add(createWhiteBishop());
-        whitePieces.add(createWhiteKnight());
-        whitePieces.add(createWhiteRook());
-
-        blackPieces.add(createBlackRook());
-        blackPieces.add(createBlackKnight());
-        blackPieces.add(createBlackBishop());
-        blackPieces.add(createBlackQueen());
-        blackPieces.add(createBlackKing());
-        blackPieces.add(createBlackBishop());
-        blackPieces.add(createBlackKnight());
-        blackPieces.add(createBlackRook());
-    }
-
-    private String getWhitePiecesResult() {
-        return listPiecesToSingleLine(whitePieces);
-    }
-
-    private String getWhitePawnsResult() {
-        return listPiecesToSingleLine(whitePawns);
-    }
-
-    private String getBlackPiecesResult() {
-        return listPiecesToSingleLine(blackPieces);
-    }
-
-    private String getBlackPawnsResult() {
-        return listPiecesToSingleLine(blackPawns);
-    }
-
-    private String getBlankLine() {
-        return listPiecesToSingleLine(noPieces);
-    }
-
-    private String listPiecesToSingleLine(ArrayList<Piece> pieces) {
-        StringBuilder sb = new StringBuilder();
-
-        for (Piece p : pieces)
-            sb.append(p.getRepresentation());
-
-        return sb.toString();
+        ranks.add(initBlackPieces());
+        ranks.add(initBlackPawns());
+        ranks.add(initBlankLine());
+        ranks.add(initBlankLine());
+        ranks.add(initBlankLine());
+        ranks.add(initBlankLine());
+        ranks.add(initWhitePawns());
+        ranks.add(initWhitePieces());
     }
 
     public String showBoard() {
         StringBuilder sb = new StringBuilder();
-        sb.append(appendNewLine(getBlackPiecesResult()));
-        sb.append(appendNewLine(getBlackPawnsResult()));
-        sb.append(appendNewLine(getBlankLine()));
-        sb.append(appendNewLine(getBlankLine()));
-        sb.append(appendNewLine(getBlankLine()));
-        sb.append(appendNewLine(getBlankLine()));
-        sb.append(appendNewLine(getWhitePawnsResult()));
-        sb.append(appendNewLine(getWhitePiecesResult()));
+
+        for (Rank r : ranks)
+            sb.append(appendNewLine(r.getRepresentations()));
+
         return sb.toString();
     }
 
     public int pieceCount() {
-        return whitePieces.size() + whitePawns.size() + blackPieces.size() + whitePawns.size();
+        return ranks.get(0).getSize() + ranks.get(1).getSize() + ranks.get(6).getSize() + ranks.get(7).getSize();
     }
 }
 
