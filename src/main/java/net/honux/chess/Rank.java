@@ -77,4 +77,8 @@ public class Rank {
         return sb.toString();
     }
 
+    public Piece findParticularPiece(int index) {
+        return pieces.get(index);
+    }
+
 }

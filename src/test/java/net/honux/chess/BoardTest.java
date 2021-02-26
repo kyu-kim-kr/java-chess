@@ -30,4 +30,10 @@ class BoardTest {
                 );
     }
 
+    @Test
+    void findPiece() {
+        board.initialize();
+
+        assertThat(board.findPiece("a8")).isEqualTo(Piece.createBlackRook());
+    }
 }
