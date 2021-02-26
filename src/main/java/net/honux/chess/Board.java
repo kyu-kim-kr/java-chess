@@ -6,6 +6,7 @@ import static net.honux.chess.Rank.*;
 import java.util.ArrayList;
 
 public class Board {
+    public static final int BOARD_LENGTH = 8;
 
     private ArrayList<Rank> ranks = new ArrayList<>();
 
