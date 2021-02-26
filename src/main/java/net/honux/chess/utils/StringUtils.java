@@ -6,6 +6,6 @@ public class StringUtils {
     private StringUtils() {}
 
     public static String appendNewLine(String string) {
-        return string + "\n";
+        return string + NEWLINE;
     }
 }
